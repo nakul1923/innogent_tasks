@@ -22,7 +22,7 @@ public class ArrListVsLinList {
 
     public static void testPerfomance(List<Integer> list, int size, String listType){
 
-        long startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();                  // it gives the current time in milliseconds from 1 jan 1970
 
         for(int i=0;i<size;i++){
 

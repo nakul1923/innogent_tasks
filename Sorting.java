@@ -56,8 +56,8 @@ class Employee implements Comparable<Employee>{
         this.salary = salary;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

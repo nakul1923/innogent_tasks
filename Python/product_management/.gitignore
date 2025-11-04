@@ -1,0 +1,64 @@
+# --- Python cache & build files ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg-info/
+*.egg
+build/
+dist/
+
+# --- Virtual environment ---
+venv/
+env/
+ENV/
+.venv/
+.Python
+
+# --- Environment variables ---
+.env
+.env.local
+.env.*.local
+
+# --- IDE / Editor files ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- OS generated files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+logs/
+*.out
+
+# --- Unit test / coverage ---
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+
+# --- Database / Temporary files ---
+*.db
+*.sqlite3
+*.sqlite
+
+# --- FastAPI / Uvicorn related ---
+*.pid
+
+# --- PyInstaller ---
+*.spec
+
+# --- Jupyter notebook checkpoints ---
+.ipynb_checkpoints
+
+# --- Misc ---
+__MACOSX/
