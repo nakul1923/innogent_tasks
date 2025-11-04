@@ -38,11 +38,6 @@ function App() {
   };
 
   return (
-    // <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-    //   <h1 className="text-3xl font-bold mb-6">📝 To-Do List</h1>
-    //   <Form addTask={addTask} />
-    //   <TaksList tasks={tasks} editTask={editTask} deleteTask={deleteTask} />
-    // </div>
 
     <div className="min-vh-100 bg-light d-flex flex-column align-items-center p-5">
       <div className="card shadow-lg p-4" style={{ width: "28rem" }}>
