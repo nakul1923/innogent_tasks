@@ -1,3 +1,7 @@
+import customException.InsufficientBalanceException;
+import customException.InvalidAmountException;
+import customException.NegativeAmountException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,41 +20,35 @@ class Main{
 
             System.out.println(savingFirst.getAccountHolderName() + "'s Account " + savingFirst.getAccountNumber() + " have " + savingFirst.getBalance() + " balance left");
 
-            while(true) {
-                System.out.println("Enter deposit amount: ");
 
                 try {
 
+                    System.out.println("Enter deposit amount: ");
                     double dep = sc.nextDouble();
-
-                    if (dep < 0 || dep > 100000000) {
-
-                        throw new RuntimeException("Please enter valid amount");
-
-                    }
                     savingFirst.deposit(dep);
 
-                } catch (InputMismatchException ie) {
+                } catch (InvalidAmountException | NegativeAmountException | InsufficientBalanceException exc) {
 
-                    System.err.println("❌ Invalid input! Please enter a valid amount.");
+                    System.err.println(exc.getMessage());
+                }catch (InputMismatchException exc){
 
-
-                } catch (RuntimeException re) {
-
-                    System.out.println(re.getMessage());
-                    continue;
-                } catch (Exception e) {
-
-                    System.out.println("Unexpected error occured. Please try again later");
-                    continue;
+                    System.out.println("Please Enter a valid numeric amount");
                 }
 
-
                 System.out.println(savingFirst.getAccountHolderName() + "'s Account " + savingFirst.getAccountNumber() + " have " + savingFirst.getBalance() + " balance left");
-                break;
-            }
 
-                savingFirst.withdraw(300);
+
+                try{
+                    System.out.println("Enter withdraw amount: ");
+                    double withd = sc.nextDouble();
+                    savingFirst.withdraw(withd);
+                } catch (InvalidAmountException | NegativeAmountException | InsufficientBalanceException exc) {
+
+                    System.err.println(exc.getMessage());
+                } catch (InputMismatchException exc){
+
+                    System.out.println("Please Enter a valid numeric amount");
+                }
 
                 System.out.println(savingFirst.getAccountHolderName() + "'s Account " + savingFirst.getAccountNumber() + " have " + savingFirst.getBalance() + " balance left");
 
