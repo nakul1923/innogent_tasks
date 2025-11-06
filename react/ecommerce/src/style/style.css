@@ -1,0 +1,41 @@
+
+/* Header */
+
+.header{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.iconContainer{
+
+     display:flex;
+     gap: 15px;
+     cursor: pointer; 
+}
+
+
+/* Product Details */
+
+.productCardContainer{
+
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    align-content:center;
+    justify-content:center;
+    height: 350px;
+    box-sizing:border-box;
+    width: 23%; 
+    border: 1px solid #ccc
+}
+
+.productCardImage{
+
+    width: 150px; height: 150px; object-fit:contain
+}
+
