@@ -25,14 +25,14 @@ class Main{
 
                     System.out.println("Enter deposit amount: ");
                     double dep = sc.nextDouble();
-                    savingFirst.deposit(dep);
+                    transaction.performDeposit(savingFirst,dep);
 
                 } catch (InvalidAmountException | NegativeAmountException | InsufficientBalanceException exc) {
 
                     System.err.println(exc.getMessage());
                 }catch (InputMismatchException exc){
 
-                    System.out.println("Please Enter a valid numeric amount");
+                    System.err.println("Please Enter a valid numeric amount");
                 }
 
                 System.out.println(savingFirst.getAccountHolderName() + "'s Account " + savingFirst.getAccountNumber() + " have " + savingFirst.getBalance() + " balance left");
@@ -41,13 +41,13 @@ class Main{
                 try{
                     System.out.println("Enter withdraw amount: ");
                     double withd = sc.nextDouble();
-                    savingFirst.withdraw(withd);
+                    transaction.performWithdraw(savingFirst,withd);
                 } catch (InvalidAmountException | NegativeAmountException | InsufficientBalanceException exc) {
 
                     System.err.println(exc.getMessage());
                 } catch (InputMismatchException exc){
 
-                    System.out.println("Please Enter a valid numeric amount");
+                    System.err.println("Please Enter a valid numeric amount");
                 }
 
                 System.out.println(savingFirst.getAccountHolderName() + "'s Account " + savingFirst.getAccountNumber() + " have " + savingFirst.getBalance() + " balance left");
