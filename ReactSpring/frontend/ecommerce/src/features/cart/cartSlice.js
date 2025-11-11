@@ -7,14 +7,6 @@ const initialState = {
     discount: 0, 
 }
 
-// const calcTotals = (items) =>{
-
-//     const totalQuantity = items.reduce((s, it)=> s + it.quantity, 0);
-//     const totalAmount = items.reduce((s, it)=> s + it.quantity * it.price, 0);
-
-//     return {totalQuantity,totalAmount};
-// };
-
 const cartSlice = createSlice({
 
     name:"cart",

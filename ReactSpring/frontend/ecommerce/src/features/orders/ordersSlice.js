@@ -1,8 +1,6 @@
-// src/features/orders/orderSlice.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import api from "../../services/api.js"; // ensure you create api.js later
+import { createSlice } from "@reduxjs/toolkit";
 
-// placeholder - you'll implement thunks later
+
 const initialState = {
   list: [],
   loading: false,
@@ -19,9 +17,6 @@ const ordersSlice = createSlice({
     clearOrders: (state) => {
       state.list = [];
     },
-  },
-  extraReducers: (builder) => {
-    // add thunks handlers here later
   },
 });
 

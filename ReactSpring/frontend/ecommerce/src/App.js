@@ -1,7 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header.jsx';
-import ProductCard from './components/ProductCard.jsx';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import ProductsPage from './pages/ProductPage.jsx';
 import CartPage from './pages/CartPage.jsx';
