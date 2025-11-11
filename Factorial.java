@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public  class Factorial {
 
-    static int factorial(int n){
+    static int factorial(int n){          // not handled the case for 1
 
         if(n==0) return 1;
         int result = 1;
