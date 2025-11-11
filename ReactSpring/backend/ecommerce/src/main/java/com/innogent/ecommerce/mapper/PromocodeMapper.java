@@ -17,17 +17,4 @@ public class PromocodeMapper {
                 .discountPercentage(promocode.getDiscountPercentage())
                 .build();
     }
-
-    public Promocode toEntity(PromocodeDto promocodeDto){
-
-        if(promocodeDto==null)return null;
-
-        Promocode promocode = new Promocode();
-
-        promocode.setActive(promocodeDto.getActive());
-        promocode.setCode(promocodeDto.getCode());
-        promocode.setDiscountPercentage(promocodeDto.getDiscountPercentage());
-
-        return promocode;
-    }
 }

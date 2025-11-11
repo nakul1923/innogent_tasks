@@ -20,18 +20,4 @@ public class ProductMapper {
                 .imageUrl(product.getImageUrl())
                 .build();
     }
-
-    public Product toEntity(ProductDto productDto){
-
-        if(productDto == null)return null;
-
-        Product product = new Product();
-        product.setId(productDto.getId());
-        product.setPrice(productDto.getPrice());
-        product.setName(productDto.getName());
-        product.setCategory(productDto.getCategory());
-        product.setImageUrl(productDto.getImageUrl());
-
-        return product;
-    }
 }

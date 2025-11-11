@@ -1,7 +1,6 @@
 package com.innogent.ecommerce.service;
 
 import com.innogent.ecommerce.dto.ProductDto;
-import com.innogent.ecommerce.dto.PromocodeDto;
 import com.innogent.ecommerce.entity.Product;
 import com.innogent.ecommerce.mapper.ProductMapper;
 import com.innogent.ecommerce.repository.ProductRepository;

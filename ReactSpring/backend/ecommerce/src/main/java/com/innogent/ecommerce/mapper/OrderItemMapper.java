@@ -1,9 +1,6 @@
 package com.innogent.ecommerce.mapper;
-
-import com.innogent.ecommerce.dto.OrderItemDto;
 import com.innogent.ecommerce.dto.OrderItemResponseDto;
 import com.innogent.ecommerce.entity.OrderItem;
-import com.innogent.ecommerce.entity.Product;
 
 public class OrderItemMapper {
 
@@ -17,16 +14,4 @@ public class OrderItemMapper {
                 .build();
     }
 
-//    public OrderItem toEntity(OrderItemDto orderItemDto, Product product){
-//
-//        if(orderItemDto==null)return null;
-//
-//        OrderItem orderItem = new OrderItem();
-//
-//        orderItem.setPrice(orderItemDto.getPrice());
-//        orderItem.setQuantity(orderItemDto.getQuantity());
-//        orderItem.setProduct(product);
-//
-//        return orderItem;
-//    }
 }
