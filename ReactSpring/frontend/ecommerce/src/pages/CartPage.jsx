@@ -8,7 +8,6 @@ import {
   clearCart,
 } from "../features/cart/cartSlice";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 
 export default function CartPage() {
   const dispatch = useDispatch();
@@ -16,108 +15,101 @@ export default function CartPage() {
   const total = useSelector(selectCartTotal);
 
   if (cartItems.length === 0)
-    return( 
-      <>
-      <Header/>
-    <h2 style={{ textAlign: "center" }}>🛒 Your cart is empty</h2>;
-      </>)
+    return (
+      <div className="flex flex-col items-center justify-center h-[70vh] text-center">
+        <h2 className="text-2xl font-semibold text-gray-700">
+          🛒 Your cart is empty
+        </h2>
+        <Link
+          to="/"
+          className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-all"
+        >
+          Continue Shopping
+        </Link>
+      </div>
+    );
+
   return (
-    <>
-    <Header/>
-    <div style={{ padding: "30px" }}>
-      <h2>Shopping Cart</h2>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-          marginTop: "20px",
-        }}
-      >
+    <div className="max-w-5xl mx-auto px-5 py-10">
+      <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+        Shopping Cart
+      </h2>
+
+      <div className="flex flex-col gap-6">
         {cartItems.map((item) => (
           <div
             key={item.id}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              borderBottom: "1px solid #ccc",
-              paddingBottom: "10px",
-            }}
+            className="flex flex-col sm:flex-row items-center justify-between border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all bg-white"
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+            {/* Product Info */}
+            <div className="flex items-center gap-5 w-full sm:w-1/3">
               <img
                 src={item.image}
                 alt={item.title}
-                width="60"
-                height="60"
-                style={{ objectFit: "contain" }}
+                className="w-20 h-20 object-contain rounded-md"
               />
               <div>
-                <h4>{item.title}</h4>
-                <p>₹{item.price}</p>
+                <h4 className="font-semibold text-gray-800">{item.title}</h4>
+                <p className="text-green-600 font-medium">₹{item.price}</p>
               </div>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <button onClick={() => dispatch(decreaseQty(item.id))}>-</button>
-              <span>{item.quantity}</span>
-              <button onClick={() => dispatch(increaseQty(item.id))}>+</button>
+            {/* Quantity Controls */}
+            <div className="flex items-center gap-3 mt-3 sm:mt-0">
+              <button
+                onClick={() => dispatch(decreaseQty(item.id))}
+                className="bg-gray-200 hover:bg-gray-300 text-lg px-3 py-1 rounded-full"
+              >
+                −
+              </button>
+              <span className="font-semibold text-gray-700">
+                {item.quantity}
+              </span>
+              <button
+                onClick={() => dispatch(increaseQty(item.id))}
+                className="bg-gray-200 hover:bg-gray-300 text-lg px-3 py-1 rounded-full"
+              >
+                +
+              </button>
             </div>
 
-            <div>
-              <p>₹{(item.price * item.quantity).toFixed(2)}</p>
+            {/* Item Total */}
+            <div className="font-semibold text-gray-800">
+              ₹{(item.price * item.quantity).toFixed(2)}
             </div>
 
-            <button onClick={() => dispatch(removeFromCart(item.id))}>
+            {/* Remove Button */}
+            <button
+              onClick={() => dispatch(removeFromCart(item.id))}
+              className="text-red-500 hover:text-red-600 text-xl mt-3 sm:mt-0"
+            >
               ❌
             </button>
           </div>
         ))}
       </div>
 
-      <div
-        style={{
-          textAlign: "right",
-          marginTop: "30px",
-          fontSize: "18px",
-          fontWeight: "bold",
-        }}
-      >
-        Total: ₹{total}
-      </div>
+      {/* Summary Section */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-10 border-t border-gray-300 pt-6">
+        <div className="text-xl font-semibold text-gray-800 mb-4 sm:mb-0">
+          Total: <span className="text-green-600">₹{total}</span>
+        </div>
 
-      <div style={{ textAlign: "right", marginTop: "20px" }}>
-        <Link to="/checkout">
+        <div className="flex gap-3">
+          <Link to="/checkout">
+            <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-all">
+              Proceed to Checkout
+            </button>
+          </Link>
+
           <button
-            style={{
-              background: "green",
-              color: "white",
-              padding: "10px 20px",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-            }}
+            onClick={() => dispatch(clearCart())}
+            className="bg-gray-400 hover:bg-gray-500 text-white px-6 py-2 rounded-lg font-medium transition-all"
           >
-            Proceed to Checkout
+            Clear Cart
           </button>
-        </Link>
-
-        <button
-          style={{
-            background: "gray",
-            color: "white",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "8px",
-            marginLeft: "10px",
-          }}
-          onClick={() => dispatch(clearCart())}
-        >
-          Clear Cart
-        </button>
+        </div>
       </div>
     </div>
-    </>
   );
 }
